@@ -1,493 +1,968 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>koko · Frontend Developer｜前端工程師個人品牌網站</title>
-  <meta name="description" content="歡迎來到koko的個人品牌網站，這裡展示我的前端開發技能、專案作品集，以及個人背景介紹與聯絡方式，期待與您交流合作。">
-  
-  <style>
-    /* CSS:BASE-START */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>koko · Frontend Developer｜前端工程師個人品牌網站</title>
+    <meta
+      name="description"
+      content="歡迎來到koko的個人品牌網站，這裡展示我的前端開發技能、專案作品集，以及個人背景介紹與聯絡方式，期待與您交流合作。"
+    />
 
-    html {
-      scroll-behavior: smooth;
-    }
+    <style>
+      /* CSS:BASE-START */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
-      line-height: 1.6;
-      background-color: #0f172a;
-      color: #e2e8f0;
-    }
+      html {
+        scroll-behavior: smooth;
+      }
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+        line-height: 1.6;
+        background-color: #0f172a;
+        color: #e2e8f0;
+      }
 
-    main {
-      flex: 1;
-    }
+      .page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+      main {
+        flex: 1;
+      }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
 
-    .section {
-      padding: 4rem 0;
-    }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
 
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: #f1f5f9;
-    }
-
-    /* 導覽列樣式 */
-    .site-header {
-      position: sticky;
-      top: 0;
-      background-color: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #1e293b;
-      z-index: 1000;
-      padding: 1rem 0;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .nav-brand {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #38bdf8;
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .nav-link {
-      color: #cbd5e1;
-      text-decoration: none;
-      transition: color 0.3s ease;
-      font-size: 0.95rem;
-    }
-
-    .nav-link:hover,
-    .nav-link:focus {
-      color: #38bdf8;
-    }
-
-    /* Footer 樣式 */
-    .site-footer {
-      background-color: #020617;
-      padding: 2rem 0;
-      text-align: center;
-      border-top: 1px solid #1e293b;
-    }
-
-    .site-footer p {
-      margin: 0;
-      color: #94a3b8;
-      font-size: 0.9rem;
-    }
-
-    .footer-link {
-      color: #38bdf8;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-link:hover,
-    .footer-link:focus {
-      color: #0ea5e9;
-    }
-    /* CSS:BASE-END */
-
-    /* CSS:HERO-START */
-    .section-hero {
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      position: relative;
-    }
-
-    .hero-content {
-      text-align: center;
-    }
-
-    .hero-title {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #f1f5f9;
-      line-height: 1.2;
-    }
-
-    .hero-subtitle {
-      font-size: 1.25rem;
-      color: #38bdf8;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-description {
-      font-size: 1.1rem;
-      color: #cbd5e1;
-      margin-bottom: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    /* CSS:HERO-END */
-
-    /* CSS:ABOUT-START */
-    .section-about {
-      background-color: #1e293b;
-    }
-
-    .about-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      align-items: stretch;
-    }
-
-    .about-text {
-      flex: 1 1 0%;
-    }
-
-    .about-photo {
-      flex: 1 1 0%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .about-photo img {
-      border-radius: 1rem;
-      box-shadow: 0 4px 24px 0 rgba(30,41,59,0.25);
-      max-width: 600px;
-      width: 100%;
-      height: auto;
-    }
-
-    .about-list {
-      margin: 1.5rem 0;
-      padding-left: 1.2rem;
-      color: #f1f5f9;
-    }
-
-    .about-list li {
-      margin-bottom: 0.5rem;
-      list-style: disc;
-      font-size: 1rem;
-    }
-
-    .about-actions {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .about-btn {
-      display: inline-block;
-      padding: 0.75em 2em;
-      border-radius: 999px;
-      background: #38bdf8;
-      color: #0f172a;
-      font-weight: 600;
-      font-size: 1rem;
-      text-decoration: none;
-      border: none;
-      transition: background 0.2s, color 0.2s;
-      cursor: pointer;
-      box-shadow: 0 2px 8px 0 rgba(56,189,248,0.08);
-    }
-
-    .about-btn:hover,
-    .about-btn:focus {
-      background: #0ea5e9;
-      color: #fff;
-    }
-    /* CSS:ABOUT-END */
-
-    /* CSS:SKILLS-START */
-    .section-skills {
-      background-color: #0f172a;
-    }
-
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin: 2rem 0 0 0;
-      padding: 0;
-      list-style: none;
-      justify-content: center;
-    }
-
-    .skill-item {
-      background: #1e293b;
-      border-radius: 1rem;
-      padding: 2rem 1.5rem 1.5rem 1.5rem;
-      min-width: 160px;
-      max-width: 220px;
-      flex: 1 1 160px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: 0 2px 8px 0 rgba(30,41,59,0.10);
-      border: 1px solid #334155;
-      transition: transform 0.2s;
-    }
-
-    .skill-item:hover {
-      transform: translateY(-4px) scale(1.03);
-      border-color: #38bdf8;
-    }
-
-    .skill-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #38bdf8;
-      display: block;
-    }
-
-    .skill-title {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: #f1f5f9;
-      margin-bottom: 0.5rem;
-      text-align: center;
-    }
-
-    .skill-desc {
-      font-size: 0.98rem;
-      color: #cbd5e1;
-      text-align: center;
-    }
-    /* CSS:SKILLS-END */
-
-    /* CSS:PROJECTS-START */
-    .section-projects {
-      background-color: #1e293b;
-    }
-
-    .projects-content p {
-      color: #cbd5e1;
-    }
-    /* CSS:PROJECTS-END */
-
-    /* CSS:CONTACT-START */
-    .section-contact {
-      background-color: #0f172a;
-    }
-
-    .contact-content p {
-      color: #cbd5e1;
-    }
-    /* CSS:CONTACT-END */
-
-    /* CSS:RWD-START */
-    @media (min-width: 768px) {
       .section {
-        padding: 6rem 0;
+        padding: 4rem 0;
       }
 
       .section-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        margin-top: 0rem;
+        margin-bottom: 1.5rem;
+        color: #f1f5f9;
       }
 
-      .hero-title {
-        font-size: 3.5rem;
+      /* 導覽列樣式 */
+      .site-header {
+        position: sticky;
+        top: 0;
+        background-color: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #1e293b;
+        z-index: 1000;
+        padding: 1rem 0;
       }
 
-      .hero-subtitle {
-        font-size: 1.5rem;
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .nav-brand {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #38bdf8;
+        text-decoration: none;
       }
 
       .nav-links {
-        gap: 2.5rem;
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-link {
+        color: #cbd5e1;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-size: 0.95rem;
+      }
+
+      .nav-link:hover,
+      .nav-link:focus {
+        color: #38bdf8;
+      }
+
+      /* Footer 樣式 */
+      .site-footer {
+        background-color: #020617;
+        padding: 2rem 0;
+        text-align: center;
+        border-top: 1px solid #1e293b;
+      }
+
+      .site-footer p {
+        margin: 0;
+        color: #94a3b8;
+        font-size: 0.9rem;
+      }
+
+      .footer-link {
+        color: #38bdf8;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-link:hover,
+      .footer-link:focus {
+        color: #0ea5e9;
+      }
+      /* CSS:BASE-END */
+
+      /* CSS:HERO-START */
+      .section-hero {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        position: relative;
+        color: #f1f5f9;
+      }
+
+      .hero-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+        text-align: center;
+        padding: 3rem 0;
+      }
+
+      .hero-content {
+        max-width: 880px;
+      }
+
+      .hero-name {
+        color: #38bdf8;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+        font-size: 0.95rem;
+        letter-spacing: 0.02em;
+      }
+
+      .hero-title {
+        font-size: 2.25rem;
+        margin: 0.25rem 0 0.5rem 0;
+        color: #f1f5f9;
+        line-height: 1.15;
+      }
+
+      .hero-subtitle {
+        font-size: 1.05rem;
+        color: #cbd5e1;
+        margin-bottom: 0.75rem;
+      }
+
+      .hero-ctas {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .hero-cta {
+        display: inline-block;
+        padding: 0.65rem 1.2rem;
+        border-radius: 999px;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: transform 0.14s ease, background 0.14s ease;
+      }
+
+      .hero-cta.primary {
+        background: #38bdf8;
+        color: #071023;
+        border: none;
+      }
+
+      .hero-cta.secondary {
+        background: transparent;
+        color: #38bdf8;
+        border: 1px solid rgba(56, 189, 248, 0.16);
+      }
+
+      .hero-cta:hover {
+        transform: translateY(-3px);
+      }
+
+      .hero-visual img {
+        width: 100%;
+        max-width: 520px;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+        display: block;
+        margin-top: 1rem;
+      }
+      /* CSS:HERO-END */
+
+      /* CSS:ABOUT-START */
+      .section-about {
+        background-color: #1e293b;
       }
 
       .about-grid {
-        flex-direction: row;
-        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: stretch;
       }
-      .about-text, .about-photo {
+
+      .about-text {
         flex: 1 1 0%;
-        min-width: 0;
       }
+
       .about-photo {
-        justify-content: flex-end;
-        padding-left: 2rem;
+        flex: 1 1 0%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-    }
 
-    @media (min-width: 1024px) {
-      .hero-title {
-        font-size: 4rem;
+      .about-photo img {
+        border-radius: 1rem;
+        box-shadow: 0 4px 24px 0 rgba(30, 41, 59, 0.25);
+        max-width: 600px;
+        width: 100%;
+        height: auto;
       }
-    }
-    /* CSS:RWD-END */
-  </style>
-</head>
-<body>
-  <div class="page">
-    <header class="site-header">
-      <nav class="nav container" aria-label="主要導覽">
-        <a href="#hero" class="nav-brand">koko · Frontend Dev</a>
-        <div class="nav-links">
-          <a href="#hero" class="nav-link">首頁</a>
-          <a href="#about" class="nav-link">關於我</a>
-          <a href="#skills" class="nav-link">技能</a>
-          <a href="#projects" class="nav-link">作品集</a>
-          <a href="#contact" class="nav-link">聯絡我</a>
-        </div>
-      </nav>
-    </header>
 
-    <main>
-      <!-- SECTION:HERO-START -->
-      <section id="hero" class="section section-hero">
-        <div class="container">
-          <div class="hero-content">
-            <h1 class="hero-title">打造優質網頁體驗的前端工程師</h1>
-            <p class="hero-subtitle">Frontend Developer</p>
-            <p class="hero-description">
-              這是 Hero 區的占位內容。未來會包含一句話自我介紹、核心職稱與行動呼籲（例如瀏覽作品集、下載履歷）。<br><br>
-              <strong>開發者注意：</strong>之後會用 Section SDD 的 Prompt 產生正式文案與版面，再把整個 section 貼回來取代這一區（在兩個註解 SECTION:HERO-START 和 SECTION:HERO-END 之間）。
-            </p>
+      .about-list {
+        margin: 1.5rem 0;
+        padding-left: 1.2rem;
+        color: #f1f5f9;
+      }
+
+      .about-list li {
+        margin-bottom: 0.5rem;
+        list-style: disc;
+        font-size: 1rem;
+      }
+
+      .about-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .about-btn {
+        display: inline-block;
+        padding: 0.75em 2em;
+        border-radius: 999px;
+        background: #38bdf8;
+        color: #0f172a;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        border: none;
+        transition: background 0.2s, color 0.2s;
+        cursor: pointer;
+        box-shadow: 0 2px 8px 0 rgba(56, 189, 248, 0.08);
+      }
+
+      .about-btn:hover,
+      .about-btn:focus {
+        background: #0ea5e9;
+        color: #fff;
+      }
+      /* CSS:ABOUT-END */
+
+      /* CSS:SKILLS-START */
+      .section-skills {
+        background-color: #0f172a;
+      }
+
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin: 2rem 0 0 0;
+        padding: 0;
+        list-style: none;
+        justify-content: center;
+      }
+
+      .skill-item {
+        background: #1e293b;
+        border-radius: 1rem;
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
+        min-width: 160px;
+        max-width: 220px;
+        flex: 1 1 160px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 2px 8px 0 rgba(30, 41, 59, 0.1);
+        border: 1px solid #334155;
+        transition: transform 0.2s;
+      }
+
+      .skill-item:hover {
+        transform: translateY(-4px) scale(1.03);
+        border-color: #38bdf8;
+      }
+
+      .skill-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #38bdf8;
+        display: block;
+      }
+
+      .skill-title {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: #f1f5f9;
+        margin-bottom: 0.5rem;
+        text-align: center;
+      }
+
+      .skill-desc {
+        font-size: 0.98rem;
+        color: #cbd5e1;
+        text-align: center;
+      }
+      /* CSS:SKILLS-END */
+
+      /* CSS:PROJECTS-START */
+      .section-projects {
+        background-color: #1e293b;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+        align-items: start;
+      }
+
+      .project-card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border: 1px solid rgba(148, 163, 184, 0.06);
+        padding: 0;
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+        border-color: #38bdf8;
+      }
+
+      .project-img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .project-body {
+        padding: 1rem 1rem 1.25rem 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        flex: 1 1 auto;
+      }
+
+      .project-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #f8fafc;
+        margin: 0;
+      }
+
+      .project-desc {
+        font-size: 0.95rem;
+        color: #cbd5e1;
+        margin: 0;
+      }
+
+      .project-tags {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+      }
+
+      .project-tag {
+        background: rgba(56, 189, 248, 0.08);
+        color: #38bdf8;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        font-size: 0.82rem;
+      }
+
+      .project-cta {
+        display: inline-block;
+        margin-top: 0.75rem;
+        padding: 0.5rem 0.9rem;
+        border-radius: 999px;
+        background: transparent;
+        color: #38bdf8;
+        border: 1px solid rgba(56, 189, 248, 0.16);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .project-cta:hover {
+        background: #38bdf8;
+        color: #0f172a;
+      }
+      /* CSS:PROJECTS-END */
+
+      /* CSS:CONTACT-START */
+      .section-contact {
+        background-color: #0f172a;
+      }
+
+      .contact-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .contact-card {
+        background: #0b1220;
+        border: 1px solid rgba(148, 163, 184, 0.04);
+        padding: 1rem;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .contact-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        background: rgba(56, 189, 248, 0.06);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #38bdf8;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+
+      .contact-meta {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .contact-meta strong {
+        color: #f1f5f9;
+        font-size: 0.98rem;
+      }
+
+      .contact-meta a {
+        color: #cbd5e1;
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+
+      .contact-cta-row {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .contact-cta {
+        display: inline-block;
+        padding: 0.6rem 1rem;
+        border-radius: 999px;
+        background: #38bdf8;
+        color: #0f172a;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.18s ease;
+      }
+
+      .contact-cta.secondary {
+        background: transparent;
+        color: #38bdf8;
+        border: 1px solid rgba(56, 189, 248, 0.16);
+      }
+
+      .contact-cta:hover {
+        background: #0ea5e9;
+        color: #071023;
+      }
+
+      .contact-note {
+        color: #94a3b8;
+        font-size: 0.95rem;
+        margin-top: 0.75rem;
+      }
+      /* CSS:CONTACT-END */
+
+      /* CSS:RWD-START */
+      @media (min-width: 768px) {
+        .section {
+          padding: 6rem 0;
+        }
+
+        .section-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-title {
+          font-size: 3.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.5rem;
+        }
+
+        .hero-ctas {
+          justify-content: start;
+        }
+
+        .nav-links {
+          gap: 2.5rem;
+        }
+
+        .about-grid {
+          flex-direction: row;
+          align-items: flex-start;
+        }
+        .about-text,
+        .about-photo {
+          flex: 1 1 0%;
+          min-width: 0;
+        }
+        .about-photo {
+          justify-content: flex-end;
+          padding-left: 2rem;
+        }
+        /* Hero 兩欄（平板以上） */
+        .hero-inner {
+          flex-direction: row;
+          align-items: center;
+          text-align: left;
+          gap: 2rem;
+        }
+        .hero-content {
+          flex: 1 1 0%;
+        }
+        .hero-visual {
+          flex: 0 0 460px;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .hero-title {
+          font-size: 4rem;
+        }
+      }
+      /* CSS:RWD-END */
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <nav class="nav container" aria-label="主要導覽">
+          <a href="#hero" class="nav-brand">koko · Frontend Dev</a>
+          <div class="nav-links">
+            <a href="#hero" class="nav-link">首頁</a>
+            <a href="#about" class="nav-link">關於我</a>
+            <a href="#skills" class="nav-link">技能</a>
+            <a href="#projects" class="nav-link">作品集</a>
+            <a href="#contact" class="nav-link">聯絡我</a>
           </div>
-        </div>
-      </section>
-      <!-- SECTION:HERO-END -->
+        </nav>
+      </header>
 
-      <!-- SECTION:ABOUT-START -->
-      <section id="about" class="section section-about" aria-labelledby="about-heading">
-        <div class="container">
-          <div class="about-grid">
-            <div class="about-text">
-              <h2 id="about-heading" class="section-title">關於我</h2>
-              <p>目前是一名專注於前端開發、教學與接案的工程師，擅長 HTML、CSS、JavaScript 及現代前端框架。</p>
-              <p>重視溝通、樂於教學，喜歡把複雜的事情講清楚，並且追求高品質的使用者體驗。</p>
-              <ul class="about-list">
-                <li>切版與 RWD 實戰經驗豐富</li>
-                <li>能協助團隊導入前端最佳實踐</li>
-                <li>善於將需求轉化為具體成果</li>
-              </ul>
-              <div class="about-actions">
-                <a href="#projects" class="about-btn">查看作品集</a>
-                <a href="#contact" class="about-btn">聯絡我</a>
+      <main>
+        <!-- SECTION:HERO-START -->
+        <section id="hero" class="section section-hero">
+          <div class="container">
+            <div class="hero-inner">
+              <div class="hero-content">
+                <p class="hero-name">koko · Frontend Developer</p>
+                <h1 class="hero-title">打造更好的網頁體驗</h1>
+                <p class="hero-subtitle">
+                  專注於互動式 UI、效能優化與易用性設計
+                </p>
+
+                <div class="hero-ctas">
+                  <a class="hero-cta primary" href="#projects">查看作品集</a>
+                  <a class="hero-cta secondary" href="/resume.pdf">下載履歷</a>
+                </div>
+              </div>
+
+              <div class="hero-visual">
+                <img
+                  src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=800&q=80"
+                  alt="在筆電前撰寫程式的開發者示意圖"
+                  loading="lazy"
+                />
               </div>
             </div>
-            <div class="about-photo">
-              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="在筆電前寫程式的工程師" loading="lazy">
+          </div>
+        </section>
+        <!-- SECTION:HERO-END -->
+
+        <!-- SECTION:ABOUT-START -->
+        <section
+          id="about"
+          class="section section-about"
+          aria-labelledby="about-heading"
+        >
+          <div class="container">
+            <div class="about-grid">
+              <div class="about-text">
+                <h2 id="about-heading" class="section-title">關於我</h2>
+                <p>
+                  目前是一名專注於前端開發、教學與接案的工程師，擅長
+                  HTML、CSS、JavaScript 及現代前端框架。
+                </p>
+                <p>
+                  重視溝通、樂於教學，喜歡把複雜的事情講清楚，並且追求高品質的使用者體驗。
+                </p>
+                <ul class="about-list">
+                  <li>切版與 RWD 實戰經驗豐富</li>
+                  <li>能協助團隊導入前端最佳實踐</li>
+                  <li>善於將需求轉化為具體成果</li>
+                </ul>
+                <div class="about-actions">
+                  <a href="#projects" class="about-btn">查看作品集</a>
+                  <a href="#contact" class="about-btn">聯絡我</a>
+                </div>
+              </div>
+              <div class="about-photo">
+                <img
+                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80"
+                  alt="在筆電前寫程式的工程師"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <!-- SECTION:ABOUT-END -->
+        </section>
+        <!-- SECTION:ABOUT-END -->
 
-      <!-- SECTION:SKILLS-START -->
-      <section id="skills" class="section section-skills" aria-labelledby="skills-heading">
-        <div class="container">
-          <h2 id="skills-heading" class="section-title">技能專長</h2>
-          <ul class="skills-list">
-            <li class="skill-item">
-              <span class="skill-icon">💻</span>
-              <div class="skill-title">前端技術</div>
-              <div class="skill-desc">HTML5、CSS3、JavaScript (ES6+)、RWD 響應式設計、Sass、SCSS</div>
-            </li>
-            <li class="skill-item">
-              <span class="skill-icon">⚛️</span>
-              <div class="skill-title">框架與工具</div>
-              <div class="skill-desc">React、Vue、Vite、Webpack、Git、NPM、Figma</div>
-            </li>
-            <li class="skill-item">
-              <span class="skill-icon">🧩</span>
-              <div class="skill-title">團隊協作</div>
-              <div class="skill-desc">Git 版本控制、Code Review、敏捷開發、跨部門溝通</div>
-            </li>
-            <li class="skill-item">
-              <span class="skill-icon">🚀</span>
-              <div class="skill-title">網站優化</div>
-              <div class="skill-desc">SEO 基礎、Lighthouse 分析、效能優化、無障礙設計</div>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <!-- SECTION:SKILLS-END -->
+        <!-- SECTION:SKILLS-START -->
+        <section
+          id="skills"
+          class="section section-skills"
+          aria-labelledby="skills-heading"
+        >
+          <div class="container">
+            <h2 id="skills-heading" class="section-title">技能專長</h2>
+            <ul class="skills-list">
+              <li class="skill-item">
+                <span class="skill-icon">💻</span>
+                <div class="skill-title">前端技術</div>
+                <div class="skill-desc">
+                  HTML5、CSS3、JavaScript (ES6+)、RWD 響應式設計、Sass、SCSS
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-icon">⚛️</span>
+                <div class="skill-title">框架與工具</div>
+                <div class="skill-desc">
+                  React、Vue、Vite、Webpack、Git、NPM、Figma
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-icon">🧩</span>
+                <div class="skill-title">團隊協作</div>
+                <div class="skill-desc">
+                  Git 版本控制、Code Review、敏捷開發、跨部門溝通
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-icon">🚀</span>
+                <div class="skill-title">網站優化</div>
+                <div class="skill-desc">
+                  SEO 基礎、Lighthouse 分析、效能優化、無障礙設計
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <!-- SECTION:SKILLS-END -->
 
-      <!-- SECTION:PROJECTS-START -->
-      <section id="projects" class="section section-projects" aria-labelledby="projects-heading">
-        <div class="container">
-          <h2 id="projects-heading" class="section-title">作品集（之後會用 Section SDD 替換）</h2>
-          <div class="projects-content">
-            <p>
-              這裡目前是 Projects 區的占位內容。未來會展示個人專案、Side Projects、以及相關作品連結與說明。
+        <!-- SECTION:PROJECTS-START -->
+        <section
+          id="projects"
+          class="section section-projects"
+          aria-labelledby="projects-heading"
+        >
+          <div class="container">
+            <h2 id="projects-heading" class="section-title">作品集</h2>
+            <p style="color: #cbd5e1; margin: 0">
+              以下為近期實作範例，包含切版、互動、以及部署範例。點選「Live」可查看示範頁面，或至
+              GitHub 查看原始碼。
             </p>
-            <p>
-              <strong>開發者注意：</strong>之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section 程式碼整段貼在 SECTION:PROJECTS-START 和 SECTION:PROJECTS-END 這兩個註解中間，完全取代現在這一區。
+
+            <div class="projects-grid">
+              <article class="project-card">
+                <img
+                  class="project-img"
+                  src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=1200&q=80"
+                  alt="開發者在筆電前工作的情境照片"
+                  loading="lazy"
+                />
+                <div class="project-body">
+                  <h3 class="project-title">Portfolio Landing</h3>
+                  <p class="project-desc">
+                    響應式個人作品集樣板，支援多裝置與輕量動畫效果，強調可擴充的
+                    Section 插槽設計。
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag">HTML</span>
+                    <span class="project-tag">CSS</span>
+                    <span class="project-tag">RWD</span>
+                  </div>
+                  <div>
+                    <a
+                      class="project-cta"
+                      href="https://example.com/portfolio-live"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Live</a
+                    >
+                    <a
+                      class="project-cta"
+                      href="https://github.com/yourname/portfolio"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >GitHub</a
+                    >
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <img
+                  class="project-img"
+                  src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1200&q=80"
+                  alt="筆電與代碼的近照，表示 Web App 開發"
+                  loading="lazy"
+                />
+                <div class="project-body">
+                  <h3 class="project-title">Task Manager App</h3>
+                  <p class="project-desc">
+                    一個小型任務管理 Web App，示範前端 state 管理、可存取
+                    localStorage 以及優化的 UI/UX。
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag">React</span>
+                    <span class="project-tag">Vite</span>
+                    <span class="project-tag">Accessibility</span>
+                  </div>
+                  <div>
+                    <a
+                      class="project-cta"
+                      href="https://example.com/task-app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Live</a
+                    >
+                    <a
+                      class="project-cta"
+                      href="https://github.com/yourname/task-manager"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >GitHub</a
+                    >
+                  </div>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <img
+                  class="project-img"
+                  src="https://images.unsplash.com/photo-1648134859196-3aa762e9440d?auto=format&fit=crop&w=1200&q=80"
+                  alt="設計師與開發者共同討論介面"
+                  loading="lazy"
+                />
+                <div class="project-body">
+                  <h3 class="project-title">E-Commerce Demo</h3>
+                  <p class="project-desc">
+                    示範商品列表與過濾、簡易購物車流程，包含效能優化與 SEO
+                    基礎設計。
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag">Vue</span>
+                    <span class="project-tag">Performance</span>
+                    <span class="project-tag">SEO</span>
+                  </div>
+                  <div>
+                    <a
+                      class="project-cta"
+                      href="https://example.com/shop-demo"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Live</a
+                    >
+                    <a
+                      class="project-cta"
+                      href="https://github.com/yourname/e-commerce-demo"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >GitHub</a
+                    >
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <!-- SECTION:PROJECTS-END -->
+
+        <!-- SECTION:CONTACT-START -->
+        <section
+          id="contact"
+          class="section section-contact"
+          aria-labelledby="contact-heading"
+        >
+          <div class="container">
+            <h2 id="contact-heading" class="section-title">聯絡我</h2>
+            <p style="color: #cbd5e1; margin: 0">
+              歡迎聯絡我討論專案、教學或合作機會。以下為快速聯絡方式與社群連結。
+            </p>
+
+            <div class="contact-grid">
+              <div class="contact-card">
+                <span class="contact-icon">✉️</span>
+                <div class="contact-meta">
+                  <strong>Email</strong>
+                  <a href="mailto:hello@example.com">hello@example.com</a>
+                  <div class="contact-cta-row">
+                    <a class="contact-cta" href="mailto:hello@example.com"
+                      >發送 Email</a
+                    >
+                    <a
+                      class="contact-cta secondary"
+                      href="https://github.com/yourname"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >GitHub</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <span class="contact-icon">📞</span>
+                <div class="contact-meta">
+                  <strong>電話 / Line</strong>
+                  <a href="tel:+886900000000">+886 900 000 000</a>
+                  <div class="contact-cta-row">
+                    <a class="contact-cta" href="tel:+886900000000">撥打電話</a>
+                    <a
+                      class="contact-cta secondary"
+                      href="https://www.linkedin.com/in/yourname"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >LinkedIn</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <span class="contact-icon">🔗</span>
+                <div class="contact-meta">
+                  <strong>社群與作品</strong>
+                  <a
+                    href="https://github.com/yourname"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >github.com/yourname</a
+                  >
+                  <div class="contact-cta-row">
+                    <a
+                      class="contact-cta"
+                      href="https://github.com/yourname"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >查看作品</a
+                    >
+                    <a
+                      class="contact-cta secondary"
+                      href="mailto:hello@example.com"
+                      >合作提案</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="contact-note">
+              隱私說明：提供聯絡資訊以便回覆，請勿寄送垃圾或濫用個資。如需正式合約或報價，請於
+              Email 內附上專案需求。
             </p>
           </div>
-        </div>
-      </section>
-      <!-- SECTION:PROJECTS-END -->
+        </section>
+        <!-- SECTION:CONTACT-END -->
+      </main>
 
-      <!-- SECTION:CONTACT-START -->
-      <section id="contact" class="section section-contact" aria-labelledby="contact-heading">
+      <footer class="site-footer">
         <div class="container">
-          <h2 id="contact-heading" class="section-title">聯絡我（之後會用 Section SDD 替換）</h2>
-          <div class="contact-content">
-            <p>
-              這裡目前是 Contact 區的占位內容。未來會提供 Email、GitHub、LinkedIn 等聯絡方式。
-            </p>
-            <p>
-              <strong>開發者注意：</strong>之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section 程式碼整段貼在 SECTION:CONTACT-START 和 SECTION:CONTACT-END 這兩個註解中間，完全取代現在這一區。
-            </p>
-          </div>
+          <p>
+            © 2025 koko · Frontend Developer |
+            <a
+              href="https://github.com/yourname"
+              class="footer-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+            ·
+            <a
+              href="https://www.linkedin.com/in/yourname"
+              class="footer-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+            ·
+            <a href="mailto:hello@example.com" class="footer-link">Email</a>
+          </p>
         </div>
-      </section>
-      <!-- SECTION:CONTACT-END -->
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p>
-          © 2025 koko · Frontend Developer | 
-          <a href="https://github.com/yourname" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a> · 
-          <a href="https://www.linkedin.com/in/yourname" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a> · 
-          <a href="mailto:hello@example.com" class="footer-link">Email</a>
-        </p>
-      </div>
-    </footer>
-  </div>
-</body>
+      </footer>
+    </div>
+  </body>
 </html>
